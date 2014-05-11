@@ -11,10 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140511225309) do
+ActiveRecord::Schema.define(version: 20140511233128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "media", force: true do |t|
+    t.integer  "note_id"
+    t.string   "title"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "note_tags", force: true do |t|
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notes", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "note_tag_id"
+  end
+
+  add_index "notes", ["note_tag_id"], name: "index_notes_on_note_tag_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name"
@@ -29,6 +52,8 @@ ActiveRecord::Schema.define(version: 20140511225309) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "media_id"
+    t.integer  "note_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
