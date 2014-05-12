@@ -1,5 +1,6 @@
-class Media < ActiveRecord::Base
-belongs_to  :user
-belongs_to  :note
+class Media < AWS::Record::Base
+  string_attr :title
+#belongs_to  :user
+#belongs_to  :note
 
 end
