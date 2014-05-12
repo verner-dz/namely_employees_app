@@ -89,7 +89,7 @@
     this.node.connect(this.context.destination);   // if the script node is not connected to an output the "onaudioprocess" event is not triggered in chrome.
   };
   //Recorder.uploadToS3
-Recorder.setupDownload2 = function(blob, filepath, mediaId) {
+Recorder.setupDownload = function(blob, filepath, mediaId) {
     var blob = blob;
     AWS.config.update({accessKeyId: 'AKIAIH2SDUJ4334SNPYQ', secretAccessKey: '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'});
     AWS.config.region = "us-west-2";
@@ -125,7 +125,7 @@ Recorder.setupDownload2 = function(blob, filepath, mediaId) {
       }
     });
   }
-    Recorder.setupDownload = function(blob, filename){
+    Recorder.setupDownload2 = function(blob, filename){
       var url = (window.URL || window.webkitURL).createObjectURL(blob);
       var link = document.getElementById("save");
       link.href = url;
