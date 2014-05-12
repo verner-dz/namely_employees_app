@@ -98,7 +98,7 @@
     this.node.connect(this.context.destination);   // if the script node is not connected to an output the "onaudioprocess" event is not triggered in chrome.
   };
   //Recorder.uploadToS3
-Recorder.setupDownload = function(blob, filepath, mediaId) {
+Recorder.setupDownload2 = function(blob, filepath, mediaId) {
     var blob = blob;
     AWS.config.update({accessKeyId: 'AKIAIH2SDUJ4334SNPYQ', secretAccessKey: '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'});
     AWS.config.region = "us-west-2";
@@ -107,7 +107,7 @@ Recorder.setupDownload = function(blob, filepath, mediaId) {
     var notetaker = new AWS.S3({ params: {Bucket: "notetakeraudio"}});
 
     // sets the permissions of the file to be public but read-only, so anyone can listen to tracks.
-    // var params = {ACL: "public-read", Key: filepath, ContentType: blob.type, Body: blob};
+     var params = {ACL: "public-read", Key: filepath, ContentType: blob.type, Body: blob};
 
     // AWS JavaScript SDK method that sends the audio file to our notetaker S3 bucket
     notetaker.putObject(params, function(error, data) {
@@ -134,12 +134,12 @@ Recorder.setupDownload = function(blob, filepath, mediaId) {
       }
     });
   }
-  // Recorder.setupDownload = function(blob, filename){
-  //   var url = (window.URL || window.webkitURL).createObjectURL(blob);
-  //   var link = document.getElementById("save");
-  //   link.href = url;
-  //   link.download = filename || 'output.wav';
-  // }
+    Recorder.setupDownload = function(blob, filename){
+      var url = (window.URL || window.webkitURL).createObjectURL(blob);
+      var link = document.getElementById("save");
+      link.href = url;
+      link.download = filename || 'output.wav';
+    }
 
   window.Recorder = Recorder;
 
