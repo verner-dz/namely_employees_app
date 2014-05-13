@@ -1,5 +1,5 @@
 class NoteTag < ActiveRecord::Base
-  belongs_to :notes
+  belongs_to :note
 
   def create
     # thisnote = Note.find(params[:note_id])
