@@ -5,6 +5,7 @@ class MediaController < ApplicationController
     # binding.pry
     @media.user_id = current_user.id
 
+
   end
 
 
