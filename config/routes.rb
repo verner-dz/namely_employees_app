@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users
+
+  resources :users do
+    resources :notes, shallow: true do
+      resources :note_tags, shallow: true
+    end
+  end
+
+  resources :media, shallow: true
+
+  # root to: "users#welcome"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
