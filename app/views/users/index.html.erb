@@ -1,17 +1,4 @@
 
-<script type="text/javascript">
-  function transcribe(words) {
-  document.getElementById("speech").value = words;
-  document.getElementById("mic").value = "";
-  document.getElementById("speech").focus();
-}
-</script>
-
-<textarea cols="50" id="speech"></textarea>
-<input id="mic"
-onwebkitspeechchange="transcribe(this.value)" x-webkit-speech>
-</script>
-
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Audio Recorder</title>
 
@@ -26,16 +13,6 @@ onwebkitspeechchange="transcribe(this.value)" x-webkit-speech>
    <!--  <%= image_tag 'microphone.png' %> -->
     <img id="record" src="/assets/images/microphone.png" onclick="toggleRecording(this);">
     <a id="save" href="#"><img src="img/save.svg"></a>
-        <div>
-  <textarea id="speech" cols="100"></textarea>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <input style="width: 15px; height:20px;border: 0px;background-color:transparent" id="mic" x-webkit-speech="" onwebkitspeechchange="transcribe(this.value)">
-
-  </div>
 
   <div class="container">
     this is where submitted tags go
