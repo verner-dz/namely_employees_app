@@ -2,16 +2,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Audio Recorder</title>
 
-
-
   <div id="viz">
     <canvas id="analyser" width="1024" height="500"></canvas>
     <canvas id="wavedisplay" width="1024" height="500"></canvas>
   </div>
 
   <div id="controls">
-   <!--  <%= image_tag 'microphone.png' %> -->
-    <img id="record" src="/assets/images/microphone.png" onclick="toggleRecording(this);">
+   <!-- <%= image_tag 'microphone.png' %> -->
+    <img id="record" src="/assets/microphone.png" onclick="toggleRecording(this);">
     <a id="save" href="#"><img src="img/save.svg"></a>
 
   <div class="container">
@@ -38,6 +36,7 @@
   <select id="select_dialect"></select>
 </div>
 
+ <!-- webspeech demo -->
 <script src="webspeech.js"></script>
 <script>
 var reco = new WebSpeechRecognition();
