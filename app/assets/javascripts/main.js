@@ -41,6 +41,13 @@ Date.prototype.timeNow = function () {
 var datetimer = new Date().today() + "-" + new Date().timeNow();
 
 //=============================================================
+function playSound ( soundname )
+  {
+    var thissound = document.getElementById( soundname );
+    thissound.play();
+    alert( "Played " + soundname );
+  }
+//=============================================================
 function saveAudio() {
     audioRecorder.exportWAV( doneEncoding );
     // could get mono instead by saying
