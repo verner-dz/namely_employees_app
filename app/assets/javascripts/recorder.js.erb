@@ -88,15 +88,18 @@
     source.connect(this.node);
     this.node.connect(this.context.destination);   // if the script node is not connected to an output the "onaudioprocess" event is not triggered in chrome.
   };
-  //Recorder.uploadToS3
-Recorder.setupDownload = function(blob, filepath, mediaId) {
+
+
+
+Recorder.setupDownload = function(blob, filepath) { //mediaId
+  console.log("hi i was called")
     var blob = blob;
     AWS.config.update({accessKeyId: 'AKIAIH2SDUJ4334SNPYQ', secretAccessKey: '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'});
     AWS.config.region = "us-west-2";
 
     // instantiates an S3 connection to our notetaker bucket
     var notetaker = new AWS.S3({ params: {Bucket: "notetakeraudio"}});
-
+    console.log(notetaker)
     // sets the permissions of the file to be public but read-only, so anyone can listen to tracks.
      var params = {ACL: "public-read", Key: filepath, ContentType: blob.type, Body: blob};
 
@@ -106,9 +109,9 @@ Recorder.setupDownload = function(blob, filepath, mediaId) {
       if (error) {
         alert("Something went wrong, and we weren't able to save your track. Please try again.");
       } else {
-        // persist the track info to our server's PostgreSQL database (not S3)
+        // persist the recording info to our server's PostgreSQL database (not S3)
         $.ajax({
-          url: "/media/" + mediaId,
+          url: "/media" ,
           type: "POST",
           data: {media: {title: filepath, url:"https://notetakeraudio.s3-us-west-2.amazonaws.com/" + filepath}},
           dataType: "json",
@@ -119,19 +122,23 @@ Recorder.setupDownload = function(blob, filepath, mediaId) {
           // server response success callback function
           success: function(data){
             console.log(data);
-            window.location.replace("/media/"+ mediaId);
+            window.location.replace("/media"); //+ mediaId
           }
         });
       }
     });
   }
-    Recorder.setupDownload2 = function(blob, filename){
-      var url = (window.URL || window.webkitURL).createObjectURL(blob);
-      var link = document.getElementById("save");
-      link.href = url;
-      link.download = filename || 'output.wav';
-    }
+
+
+    // Recorder.setupDownload = function(blob, filename){
+    //   var url = (window.URL || window.webkitURL).createObjectURL(blob);
+    //   var link = document.getElementById("save");
+    //   link.href = url;
+    //   link.download = filename || 'output.wav';
+    // }
 
   window.Recorder = Recorder;
 
 })(window);
+
+
