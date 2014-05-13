@@ -10,7 +10,7 @@
   <div id="controls">
    <!-- <%= image_tag 'microphone.png' %> -->
     <img id="record" src="/assets/microphone.png" onclick="toggleRecording(this);">
-    <a id="save" href="#"><img src="img/save.svg"></a>
+    <a id="save" href="#"><img src='/assets/saveblacktransparent.jpg'></a>
 
   <div class="container">
     this is where submitted tags go
@@ -29,7 +29,7 @@
   <span id="interim_span" style="color:gray"></span>
 </div>
 <button onclick="microphoneButton()" style="border: 0; background-color:transparent">
-  <img id="status_img" src="mic.gif" alt="Start"></button>
+  <img id="status_img" src="assets/mic.gif" alt="Start"></button>
 <button onclick="emailButton()">Create Email</button>
 <div id="div_language">
   <select id="select_language" onchange="updateCountry()"></select>
@@ -37,7 +37,7 @@
 </div>
 
  <!-- webspeech demo -->
-<script src="webspeech.js"></script>
+<!-- <script src="webspeech.js"></script> -->
 <script>
 var reco = new WebSpeechRecognition();
 reco.statusText('status');
