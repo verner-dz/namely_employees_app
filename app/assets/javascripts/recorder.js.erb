@@ -111,9 +111,9 @@ Recorder.setupDownload = function(blob, filepath) { //mediaId
       } else {
         // persist the recording info to our server's PostgreSQL database (not S3)
         $.ajax({
-          url: "/media" ,
+          url: "/sounds" ,
           type: "POST",
-          data: {media: {title: filepath, url:"https://notetakeraudio.s3-us-west-2.amazonaws.com/" + filepath}},
+          data: {sound: {title: filepath, url:"https://notetakeraudio.s3-us-west-2.amazonaws.com/" + filepath}},
           dataType: "json",
           // server response error callback function
           error: function() {
@@ -122,7 +122,7 @@ Recorder.setupDownload = function(blob, filepath) { //mediaId
           // server response success callback function
           success: function(data){
             console.log(data);
-            window.location.replace("/media"); //+ mediaId
+            window.location.replace("/sounds"); //+ mediaId
           }
         });
       }
