@@ -16,6 +16,8 @@
 //= require recorderWorker
 //= require recorder.js
 //= require_tree .
+//= require jquery
+//= require jquery_ujs
 
 
 function ready(){

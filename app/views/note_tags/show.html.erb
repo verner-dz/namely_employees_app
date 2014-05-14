@@ -1,3 +1,5 @@
+
+
 <audio id="audio2"
    preload="auto"
    src="http://upload.wikimedia.org/wikipedia/commons/a/a9/Tromboon-sample.ogg" >
@@ -11,4 +13,12 @@
     this.currentTime = 12;
     this.play();
   });
+</script>
+
+<script>
+// Pre-signing a getObject operation (synchronously)
+var params = {Bucket: 'bucket', Key: 'key'};
+var url = s3.getSignedUrl('getObject', params);
+console.log('The URL is', url);
+$('#audio2').attr("src", url);
 </script>
