@@ -4,6 +4,7 @@ class NoteTagsController < ApplicationController
   end
 
   def create
+
     # Parameters: {"sound_id"=>"5", "noteArray"=>{"0"=>{"content"=>"gewwewe", "created_epoch"=>"1400107083592"}, "1"=>{"content"=>"gewwewesgasga", "created_epoch"=>"1400107085697"}}}
 
     sound_id = params[:sound_id].to_i
@@ -16,6 +17,5 @@ class NoteTagsController < ApplicationController
         user_id: current_user.id
         })
     end
-
   end
 end
