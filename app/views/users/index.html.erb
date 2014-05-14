@@ -36,6 +36,8 @@
     <select id="select_dialect"></select>
   </div>
 
+  <audio src="<%=url %>" id="beep" autostart="false"></audio>
+  <input type=button onclick="playSound('beep')">play</input>
    <!-- webspeech demo -->
   <!-- <script src="webspeech.js"></script> -->
   <script>
@@ -60,6 +62,8 @@
     }
     document.getElementById('interim_span').innerHTML = interim_transcript;
   };
+
+
 
   // Create a new <select> element containing an <option> for each of the
   // speech_recognition_result alternatives.
