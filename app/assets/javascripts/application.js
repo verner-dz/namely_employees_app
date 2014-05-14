@@ -21,6 +21,7 @@
 
 
 function ready(){
+
   $('button').click(function(){
     // get value from input field
     var inputText = $('#note-tagger').val();
@@ -36,19 +37,19 @@ function ready(){
     var appendtoContainer = _newNote.appendTo($('.container'));
 
     // submit ajax request to appropriate controller, with appropriate data passed (tags create route)
-    // $.ajax({
-    //   url: '/users/'+ window.location.pathname.match(/\/\d+$/)[0].replace("/","")+'/sounds/new',
-    //   method: 'post',
-    //   data: {
-    //     content: inputText
-    //     created_epoch: _noteCreationEpoch
-    //     },
-    //     dataType: 'json'
-    // }).error(function(data) {
+    $.ajax({
+      url: '/users/'+ window.location.pathname.match(/\/\d+$/)[0].replace("/","")+'/sounds/new',
+      method: 'post',
+      data: {
+        content: inputText,
+        created_epoch: _noteCreationEpoch
+        },
+        dataType: 'json'
+    }).error(function(data) {
 
-    // });
-      // respond with json of the new note
-      // when ajax is done
+    });
+    //   respond with json of the new note
+    //   when ajax is done
     // get text from the json that was returned, along with created_at time
     // append that text as a paragraph tag (??) to the container div
   });
