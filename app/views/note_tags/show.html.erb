@@ -1,15 +1,29 @@
 
-<audio controls src="https://s3-us-west-2.amazonaws.com/notetakeraudio/myRecording0014-05-2014-12%3A09%3A38.wav" >
+<audio id="audio2" controls src="https://s3-us-west-2.amazonaws.com/notetakeraudio/myRecording0014-05-2014-12%3A09%3A38.wav" >
 
    <p>Your browser does not support the audio element</p>
 </audio>
 
-// <script>
-//   myAudio=document.getElementById('audio2');
-//   myAudio.addEventListener('canplaythrough', function() {
-//     this.currentTime = 12;
-//     this.play();
-//   });
-// </script>
+ <script>
+  myAudio=document.getElementById('audio2');
+  myAudio.addEventListener('canplaythrough', function() {
+    this.currentTime = 12;
+    this.play();
+   });
+ </script>
 
 
+<!-- var sfx = new Audio('sfx.wav');
+var track = sfx.addTextTrack('metadata'); // previously implemented as addTrack()
+
+// Add cues for sounds we care about.
+track.addCue(new TextTrackCue(12.783, 13.612, 'dog bark')); // startTime, endTime, text
+track.addCue(new TextTrackCue(13.612, 15.091, 'kitten mew'));
+
+function playSound(id) {
+  sfx.currentTime = track.getCueById(id).startTime;
+  sfx.play();
+}
+
+playSound('dog bark');
+playSound('kitten mew'); -->
