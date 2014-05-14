@@ -19,20 +19,19 @@
 //= require jquery
 //= require jquery_ujs
 
-
 function ready(){
 
   $('button').click(function(){
     // get value from input field
-    var inputText = $('#note-tagger').val();
-    var _noteCreationEpoch = new Date().getTime();
+    var inputText = $('#note-tagger').val(); // this is :content
+    var noteCreationEpoch = new Date().getTime(); // this is :created_epoch
     var _newNote = $('<a />', {
         text: inputText,
-        href: _noteCreationEpoch,
-        id: 'e'+_noteCreationEpoch,
+        href: noteCreationEpoch,
+        id: 'e' + noteCreationEpoch,
         addClass: 'note'
       });
-    var noteTagObject = {content: inputText, created_epoch: _noteCreationEpoch};
+    var noteTagObject = {content: inputText, created_epoch: noteCreationEpoch};
     submitTagArray.push(noteTagObject);
 
 
