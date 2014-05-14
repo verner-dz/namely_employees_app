@@ -1,4 +1,4 @@
-class Note_tagsController < ApplicationController
+class NoteTagsController < ApplicationController
 
   def new
   end
@@ -8,6 +8,6 @@ class Note_tagsController < ApplicationController
     #   @note_tag.sound_id = params[:sound_id]
     #   @note_tag.user_id = current_user.id
     #   @note_tag.save
-    end
+    #end
   end
 end
