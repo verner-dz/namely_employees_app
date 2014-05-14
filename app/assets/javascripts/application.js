@@ -32,22 +32,24 @@ function ready(){
         id: 'e'+_noteCreationEpoch,
         addClass: 'note'
       })
+    var noteTagObject = {content: inputText, created_epoch: _noteCreationEpoch}
+    submitTagArray.push(noteTagObject);
 
 
     var appendtoContainer = _newNote.appendTo($('.container'));
 
     // submit ajax request to appropriate controller, with appropriate data passed (tags create route)
-    $.ajax({
-      url: '/users/'+ window.location.pathname.match(/\/\d+$/)[0].replace("/","")+'/sounds/new',
-      method: 'post',
-      data: {
-        content: inputText,
-        created_epoch: _noteCreationEpoch
-        },
-        dataType: 'json'
-    }).error(function(data) {
+    // $.ajax({
+    //   url: '/users/'+ window.location.pathname.match(/\/\d+$/)[0].replace("/","")+'/sounds/new',
+    //   method: 'post',
+    //   data: {
+    //     content: inputText,
+    //     created_epoch: _noteCreationEpoch
+    //     },
+    //     dataType: 'json'
+    // }).error(function(data) {
 
-    });
+    // });
     //   respond with json of the new note
     //   when ajax is done
     // get text from the json that was returned, along with created_at time
@@ -57,3 +59,4 @@ function ready(){
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
+var submitTagArray = [];
