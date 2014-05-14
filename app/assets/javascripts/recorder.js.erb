@@ -110,10 +110,11 @@ Recorder.setupDownload = function(blob, filepath) { //mediaId
         alert("Something went wrong, and we weren't able to save your track. Please try again.");
       } else {
         // persist the recording info to our server's PostgreSQL database (not S3)
+        // params are :title, :url
         $.ajax({
           url: window.location.pathname.replace('/new',''),
           type: "POST",
-          data: {sound: {title: filepath, url:"https://notetakeraudio.s3-us-west-2.amazonaws.com/" + filepath}},
+          data: {sound: {title: filepath, url:"https://notetakeraudio.s3-us-west-2.amazonaws.com/" + filepath }},
           dataType: "json",
           // server response error callback function
           error: function() {
@@ -122,11 +123,32 @@ Recorder.setupDownload = function(blob, filepath) { //mediaId
           // server response success callback function
           success: function(data){
             console.log(data);
-            //make ajax request
-              // $.ajax({
-              //   // url:  '/sounds/'+:sound_id+'/note_tags'
-              // })
-            // window.location.replace("/sounds"); //+ mediaId
+            dataHash = {
+              sound_id: data.id,
+              noteArray: submitTagArray,
+            }
+
+            $.ajax({
+              url: '/sounds/' + data.id + '/note_tags',
+              method: "POST",
+              data: dataHash,
+              dataType: "json"
+            })
+
+
+            // for(var i = 0; i < submitTagArray.length; i++){
+            //   var NoteTagSoundId = submitTagArray[i].sound_id = data.sound_id
+            //   var NoteTagUserId = submitTagArray[i].user_id = data.user_id
+            // },
+            // // send an ajax request to persist note_tags to it's db
+            //   $.ajax({
+            //     url:  '/sounds/'+:sound_id+'/note_tags', //how to write this url?
+            //     type: "POST",
+            //     data: {note_tag: {content: inputText, created_epoch: noteCreationEpoch, sound_id: TagSoundId, user_id: NotetagUserId }}
+            //     dataType: "json"
+            //   }) //.done({
+            // window.location.replace("/sounds"); //+ mediaId redirect to new page that playbacks audio
+            // })
           }
         });
       }

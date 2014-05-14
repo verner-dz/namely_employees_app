@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140514182957) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140514182957) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "sound_id"
-    t.integer  "created_epoch"
+    t.integer  "created_epoch", limit: 8
   end
 
   create_table "sounds", force: true do |t|
