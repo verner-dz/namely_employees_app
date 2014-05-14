@@ -13,8 +13,8 @@ class SoundsController < ApplicationController
 
 
   #   respond_to do |format|
-  #     format.html { }
-  #     format.json { render text: }
+  #     format.html { render nothing: true}
+  #     format.json { render json: @sound.to_json}
   #   end
   end
 

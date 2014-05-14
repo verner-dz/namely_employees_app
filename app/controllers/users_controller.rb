@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def welcome
     @user = current_user.id
     # params.inspect
+    binding.pry
    # current_user = User.find(params[:id])
   end
 
