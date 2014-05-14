@@ -22,18 +22,29 @@ function ready(){
   $('button').click(function(){
     // get value from input field
     var inputText = $('#note-tagger').val();
+    var _noteCreationEpoch = new Date().getTime();
+    var _newNote = $('<a />', {
+        text: inputText,
+        href: _noteCreationEpoch,
+        id: 'e'+_noteCreationEpoch,
+        addClass: 'note'
+      })
+
+
+    var appendtoContainer = _newNote.appendTo($('.container'));
+
     // submit ajax request to appropriate controller, with appropriate data passed (tags create route)
-    $.ajax({
-      url: '/notes/'+ window.location.pathname.match(/\/\d+$/)[0].replace("/","")+'/note_tags',
-      method: 'post',
-      data: {
-        content: inputText
-        },
-        dataType: 'json'
-    }).done(function(data) {
-      //set up the routes so you can console.log(data)
-      console.log(data);
-    });
+    // $.ajax({
+    //   url: '/users/'+ window.location.pathname.match(/\/\d+$/)[0].replace("/","")+'/sounds/new',
+    //   method: 'post',
+    //   data: {
+    //     content: inputText
+    //     created_epoch: _noteCreationEpoch
+    //     },
+    //     dataType: 'json'
+    // }).error(function(data) {
+
+    // });
       // respond with json of the new note
       // when ajax is done
     // get text from the json that was returned, along with created_at time

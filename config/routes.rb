@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  root "users#welcome"
+
+  # post "/notes/:note_id/note_tags", to "notes#create"
+
   resources :users do
-    resources :notes, shallow: true do
+    resources :sounds, shallow: true do
       resources :note_tags, shallow: true
     end
   end
 
-  resources :media, shallow: true
+
 
   # root to: "users#welcome"
   # The priority is based upon order of creation: first created -> highest priority.
