@@ -1,4 +1,11 @@
-
+<script>
+var params = {Bucket: 'notetakeraudio', Key: 'AKIAIH2SDUJ4334SNPYQ'};
+var s3 = new AWS.S3();
+s3.getBucketAcl(params, function (err, data) {
+  if (err) console.log(err, err.stack); // an error occurred
+  else     console.log(data);           // successful response
+});
+</script>
 
 <audio id="audio2"
    preload="auto"
@@ -16,8 +23,8 @@
 </script>
 
 <script>
+console.log(params)
 // Pre-signing a getObject operation (synchronously)
-var params = {Bucket: 'bucket', Key: 'key'};
 var url = s3.getSignedUrl('getObject', params);
 console.log('The URL is', url);
 $('#audio2').attr("src", url);
