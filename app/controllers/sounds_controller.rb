@@ -8,14 +8,15 @@ class SoundsController < ApplicationController
   end
 
   def create
+    @sound = Sound.new(title: params['sound']['title'], url: params['sound']['url'])
+    @sound.user_id = current_user.id
+    @sound.save
+    # binding.pry
 
-  #   @note = Note.where(current_user == current_user.id)
-
-
-  #   respond_to do |format|
-  #     format.html { render nothing: true}
-  #     format.json { render json: @sound.to_json}
-  #   end
+    respond_to do |format|
+      format.html { render nothing: true}
+      format.json { render json: @sound.to_json}
+    end
   end
 
 
