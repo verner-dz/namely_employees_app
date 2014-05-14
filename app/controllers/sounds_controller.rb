@@ -11,7 +11,7 @@ class SoundsController < ApplicationController
     @sound = Sound.new(title: params['sound']['title'], url: params['sound']['url'])
     @sound.user_id = current_user.id
     @sound.save
-    binding.pry
+    # binding.pry
 
     respond_to do |format|
       format.html { render nothing: true}

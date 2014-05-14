@@ -31,8 +31,8 @@ function ready(){
         href: _noteCreationEpoch,
         id: 'e'+_noteCreationEpoch,
         addClass: 'note'
-      })
-    var noteTagObject = {content: inputText, created_epoch: _noteCreationEpoch}
+      });
+    var noteTagObject = {content: inputText, created_epoch: _noteCreationEpoch};
     submitTagArray.push(noteTagObject);
 
 
