@@ -8,15 +8,16 @@
  <script>
   myAudio=document.getElementById('audio2');
   myAudio.addEventListener('canplaythrough', function() {
-    this.currentTime = 12;
+    this.currentTime = 0;
     this.play();
    });
  </script>
 
+<ul>
 <% @sound.note_tags.each do |note| %>
-  <%= note.content  %>
+  <li><%= note.content  %></li>
 <% end %>
-
+</ul>
 
 <!-- var sfx = new Audio('sfx.wav');
 var track = sfx.addTextTrack('metadata'); // previously implemented as addTrack()

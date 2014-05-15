@@ -25,14 +25,14 @@ class SoundsController < ApplicationController
     # binding.pry
 
     # note_tags.keys.each do |idx|
-    #   Note_tag.create({
+    #   NoteTag.create({
     #     content: note_tags[idx]['content']
     #     created_epoch: note_tags[idx]['created_epoch']
     #     })
     # end
 
     respond_to do |format|
-      format.html { redirect_to @sound }
+      format.html { render nothing: true }
       format.json { render json: @sound.to_json}
     end
   end
