@@ -21,7 +21,7 @@
 
 function ready(){
 
-  $('button').click(function(){
+  $('#submit').click(function(){
     // get value from input field
     var inputText = $('#note-tagger').val(); // this is :content
     var noteCreationEpoch = new Date().getTime(); // this is :created_epoch
