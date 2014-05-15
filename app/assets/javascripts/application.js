@@ -15,7 +15,7 @@
 //= require turbolinks
 //= require recorderWorker
 //= require recorder.js
-//= require_tree .
+//= require_tree ./common
 //= require jquery
 //= require jquery_ujs
 

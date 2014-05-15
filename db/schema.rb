@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515001759) do
+ActiveRecord::Schema.define(version: 20140515162505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140515001759) do
     t.text   "url"
     t.string "title"
     t.text   "ocrtext"
+    t.string "language"
   end
 
   create_table "note_tags", force: true do |t|

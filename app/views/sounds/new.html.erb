@@ -1,3 +1,9 @@
+<%= javascript_include_tag 'audiodisplay'%>
+<%= javascript_include_tag 'main'%>
+<%= javascript_include_tag 'recorder.js.erb'%>
+<%= javascript_include_tag 'recordWorker'%>
+<%= javascript_include_tag 'webspeech'%>
+
 <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Audio Recorder</title>
     <div id="viz">
@@ -6,7 +12,7 @@
     </div>
 
     <div id="controls">
-     <!-- <%= image_tag 'microphone.png' %> -->
+<!-- <%= image_tag 'microphone.png' %> -->
       <img id="record" src="/assets/microphone.png" onclick="toggleRecording(this);">
 <!-- this is where and note_tags div are created -->
     <div class="container">
@@ -17,7 +23,7 @@
     </div>
 
   <div id="status"></div>
-  <p>
+  <p></p>
   <div id="results">
     <button onclick="reco.toggleStartStop()" style="border: 0; background-color:transparent">
     <img id="status_img" src="mic.gif" alt="Start"></button>
