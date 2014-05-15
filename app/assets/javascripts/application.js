@@ -26,7 +26,7 @@ function ready(){
     var inputText = $('#note-tagger').val(); // this is :content
     var noteCreationEpoch = new Date().getTime(); // this is :created_epoch
     var _newNote = $('<a />', {
-        text: inputText,
+        text: inputText + " | ",
         href: noteCreationEpoch,
         id: 'e' + noteCreationEpoch,
         addClass: 'note'
@@ -36,7 +36,7 @@ function ready(){
 
 
     var appendtoContainer = _newNote.appendTo($('.container'));
-
+    document.getElementById('note-tagger').value = '';
     // submit ajax request to appropriate controller, with appropriate data passed (tags create route)
     // $.ajax({
     //   url: '/users/'+ window.location.pathname.match(/\/\d+$/)[0].replace("/","")+'/sounds/new',
