@@ -24,7 +24,7 @@
     width: 100%;
   }
 
-  #record { height: 15vh; }
+  #record { height: 4vh; }
   #record.recording {
     background: red;
     background: -webkit-radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%);
@@ -76,7 +76,7 @@ google speech .css!!
 
 body {
   line-height: 1;
-}*/
+}
 /*ol, ul {
   list-style: none;
 }*/
@@ -107,8 +107,8 @@ body {
 background: #FFFFFF; /* Old browsers */
 
 
-/*  background: #b8d9fa url(../images/pattern_136.gif) repeat; */
-/*  background: #3b52a4; url(../images/stripe.png) repeat-x;*/
+  background: #b8d9fa url(../images/pattern_136.gif) repeat; */
+  background: #3b52a4; url(../images/stripe.png) repeat-x;*/
   color: #111;
   font: 15px/22px 'Open Sans', Droid Sans, Arial, sans-serif;
 }
@@ -295,4 +295,16 @@ footer.primary {
   background-color: rgba(254,255,255,0.8);
   font-size: 11px;
   color: #666;
+}
+
+body {
+  background-color: lightgrey;
+}
+/* trying to use canvas as background*/
+analyser {
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
 }
