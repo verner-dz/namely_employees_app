@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # post "/notes/:note_id/note_tags", to "notes#create"
 
   resources :users do
+    resources :images, shallow: true
     resources :sounds, shallow: true do
       resources :note_tags, shallow: true
     end

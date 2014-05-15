@@ -12,6 +12,7 @@ class SoundsController < ApplicationController
     @sound = Sound.new(title: params['sound']['title'], url: params['sound']['url'])
     @sound.user_id = current_user.id
     @sound.save
+
     # note_tags = params[:noteTags] # array of notes with attributes
 
     # call each on the array of notes
