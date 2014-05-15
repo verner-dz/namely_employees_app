@@ -1,4 +1,7 @@
-
+<%= javascript_include_tag 'audiodisplay'%>
+<%= javascript_include_tag 'main'%>
+<%= javascript_include_tag 'recorder'%>
+<%= javascript_include_tag 'recorderWorker'%>
 <%= javascript_include_tag 'webspeech'%>
 
 <div id='worker-url' data-worker-url='<%= asset_path 'recorderWorker.js', type: :javascript %>'></div>
