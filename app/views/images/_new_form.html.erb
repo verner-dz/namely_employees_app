@@ -1,0 +1,13 @@
+
+<%= form_for([@user, @image]) do |f| %>
+  <div class="field">
+    <%=f.text_field :title, :placeholder => "Image title"%>
+    <%=f.text_field :url, :placeholder => "File path, png or jpg." %>
+  </div>
+  <div class="field">
+    <%=f.text_field :language, :placeholder => "first two letters of any language" %>
+  </div>
+  <div class="actions">
+  <%= f.submit %>
+  </div>
+<% end %>
