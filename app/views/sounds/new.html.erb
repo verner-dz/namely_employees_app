@@ -1,7 +1,5 @@
-
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Audio Recorder</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Audio Recorder</title>
     <div id="viz">
       <canvas id="analyser" width="1024" height="500"></canvas>
       <canvas id="wavedisplay" width="1024" height="500"></canvas>
@@ -10,40 +8,31 @@
     <div id="controls">
      <!-- <%= image_tag 'microphone.png' %> -->
       <img id="record" src="/assets/microphone.png" onclick="toggleRecording(this);">
-
-
-
-   <!-- this is where and note_tags div are created -->
-
-  <div class="container">
-  </div>
-  <div>
-  <input type="text" id="note-tagger" size = "95">
-  <button id="submit">Submit tag</button>
+<!-- this is where and note_tags div are created -->
+    <div class="container">
+    </div>
+    <div>
+      <input type="text" id="note-tagger" size = "95">
+      <button id="submit">Submit tag</button>
     </div>
 
-  <div id="status">
-  </div>
+  <div id="status"></div>
   <p>
-
-  <!-- <img id="status_img" src="mic.gif" alt="Start"></button> -->
   <div id="results">
-       <button onclick="reco.toggleStartStop()" style="border: 0; background-color:transparent">
-        <img id="status_img" src="mic.gif" alt="Start"></button>
+    <button onclick="reco.toggleStartStop()" style="border: 0; background-color:transparent">
+    <img id="status_img" src="mic.gif" alt="Start"></button>
     <span id="final_span" style="color:black"></span>
     <span id="interim_span" style="color:gray"></span>
   </div>
   <button onclick="microphoneButton()" style="border: 0; background-color:transparent">
-
   <button onclick="emailButton()">Create Email</button>
   <div id="div_language">
     <select id="select_language" onchange="updateCountry()"></select>
     <select id="select_dialect"></select>
-
   </div>
 
-
-  <script>
+<!-- script for google transcribe.. -->
+<script>
   var reco = new WebSpeechRecognition();
   reco.statusText('status');
   reco.statusImage('status_img');
