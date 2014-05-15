@@ -9,14 +9,15 @@ class NoteTagsController < ApplicationController
 
     sound_id = params[:sound_id].to_i
 
-   params[:noteArray].keys.each do |index|
+
+    params[:noteArray].keys.each do |index|
       NoteTag.create({
         content: params[:noteArray][index]["content"],
         created_epoch: params[:noteArray][index]["created_epoch"].to_i,
         sound_id: sound_id,
         user_id: current_user.id
         })
-      end
+    end
       render json: true, status: 201
   end
 end

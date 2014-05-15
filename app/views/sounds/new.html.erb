@@ -1,7 +1,5 @@
-
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Audio Recorder</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Audio Recorder</title>
     <div id="viz">
       <canvas id="analyser" width="1024" height="500"></canvas>
       <canvas id="wavedisplay" width="1024" height="500"></canvas>
@@ -11,72 +9,39 @@
      <!-- <%= image_tag 'microphone.png' %> -->
       <img id="record" src="/assets/microphone.png" onclick="toggleRecording(this);">
 
-
-   <!-- this is where and note_tags div are created -->
-  <div class="container">
-
-  </div>
-
-  <div>
-  <input type="text" id="note-tagger">
-  <button>Submit tag</button>
+<!-- this is where and note_tags div are created -->
+    <div class="container">
+    </div>
+    <div>
+      <input type="text" id="note-tagger" size = "95">
+      <button id="submit">Submit tag</button>
     </div>
 
-  <div id="status">
-  </div>
+  <div id="status"></div>
   <p>
   <div id="results">
+    <button onclick="reco.toggleStartStop()" style="border: 0; background-color:transparent">
+    <img id="status_img" src="mic.gif" alt="Start"></button>
     <span id="final_span" style="color:black"></span>
     <span id="interim_span" style="color:gray"></span>
   </div>
   <button onclick="microphoneButton()" style="border: 0; background-color:transparent">
-    <!-- <img id="status_img" src="assets/mic.gif" alt="Start"></button> -->
   <button onclick="emailButton()">Create Email</button>
   <div id="div_language">
     <select id="select_language" onchange="updateCountry()"></select>
     <select id="select_dialect"></select>
-
   </div>
 
-
-  <script>
+<!-- script for google transcribe.. -->
+<script>
   var reco = new WebSpeechRecognition();
   reco.statusText('status');
   reco.statusImage('status_img');
   reco.finalResults('final_span');
   reco.interimResults('interim_span');
   reco.continuous = true;
-  reco.maxAlternatives = 10;
-
-  // Handler for speech recognition results.
-  reco.recognition.onresult = function(event) {
-    var interim_transcript = '';
-    // Process all new results, both final and interim.
-    for (var i = event.resultIndex; i < event.results.length; ++i) {
-      if (event.results[i].isFinal) {
-        appendSelectOptions('final_span', event.results[i]);
-      } else {
-        interim_transcript += event.results[i][0].transcript;
-      }
-    }
-    document.getElementById('interim_span').innerHTML = interim_transcript;
-  };
 
 
-
-  // Create a new <select> element containing an <option> for each of the
-  // speech_recognition_result alternatives.
-  // Then append this <select> element to destination_id.
-  function appendSelectOptions(destination_id, speech_recognition_result) {
-    var select = document.createElement('SELECT')
-    for (var i = 0; i < speech_recognition_result.length; ++i) {
-      var option = document.createElement('OPTION')
-      option.text = speech_recognition_result[i].transcript;
-      option.value = i;
-      select.options.add(option)
-    }
-    document.getElementById(destination_id).appendChild(select);
-  }
 
   // Handler when user clicks microphone button.
   function microphoneButton() {
