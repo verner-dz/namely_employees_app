@@ -31,7 +31,7 @@
     <span id="interim_span" style="color:gray"></span>
   </div>
   <button onclick="microphoneButton()" style="border: 0; background-color:transparent">
-    <img id="status_img" src="assets/mic.gif" alt="Start"></button>
+    <!-- <img id="status_img" src="assets/mic.gif" alt="Start"></button> -->
   <button onclick="emailButton()">Create Email</button>
   <div id="div_language">
     <select id="select_language" onchange="updateCountry()"></select>
@@ -39,10 +39,6 @@
 
   </div>
 
-  <!--  -->
-  <input type=button onclick="playSound('beep')">play</input>
-   <!-- webspeech demo -->
-  <!-- <script src="webspeech.js"></script> -->
   <script>
   var reco = new WebSpeechRecognition();
   reco.statusText('status');
