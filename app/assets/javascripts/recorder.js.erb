@@ -133,6 +133,9 @@ Recorder.setupDownload = function(blob, filepath) { //mediaId
               method: "POST",
               data: dataHash,
               dataType: "json"
+            }).done(function(data){
+              var redirect = ('/sounds/' + data.id);
+              window.location.replace(redirect);
             })
 
 
