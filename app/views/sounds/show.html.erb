@@ -1,11 +1,7 @@
-<!--
+
+
+
 <audio id="audio2" controls src="<%= @sound.url %>" >
-  @sound.notes.each do |note|
-  note.content is a link to note.epoch's timestamp in the audio file
-  end
-
-<audio id="audio2" controls src="https://s3-us-west-2.amazonaws.com/notetakeraudio/myRecording0014-05-2014-12%3A09%3A38.wav" >
-
    <p>Your browser does not support the audio element</p>
 </audio>
 
@@ -16,8 +12,10 @@
     this.play();
    });
  </script>
- -->
 
+<% @sound.note_tags.each do |note| %>
+  <%= note.content  %>
+<% end %>
 
 
 <!-- var sfx = new Audio('sfx.wav');

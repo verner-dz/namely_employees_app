@@ -31,9 +31,13 @@ class SoundsController < ApplicationController
     # end
 
     respond_to do |format|
-      format.html { render nothing: true}
+      format.html { redirect_to @sound }
       format.json { render json: @sound.to_json}
     end
+  end
+
+  def show
+    @sound = Sound.find(params[:id])
   end
 
 
