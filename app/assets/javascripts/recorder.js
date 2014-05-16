@@ -121,7 +121,7 @@ $(document).ready(function() {
 
 
   Recorder.setupDownload = function(blob, filepath) { //mediaId
-    console.log("hi i was called")
+    console.log("setupDownload i was called")
       var blob = blob;
       console.log("access_key", access_key);
       console.log("secret_access_key", secret_access_key);
