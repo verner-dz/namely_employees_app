@@ -126,7 +126,6 @@ $(document).ready(function() {
       console.log("access_key", access_key);
       console.log("secret_access_key", secret_access_key);
       AWS.config.update({accessKeyId: access_key, secretAccessKey: secret_access_key});
-      // AWS.config.update({accessKeyId: 'AKIAIH2SDUJ4334SNPYQ', secretAccessKey: '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'});
       AWS.config.region = "us-west-2";
 
       // instantiates an S3 connection to our notetaker bucket
