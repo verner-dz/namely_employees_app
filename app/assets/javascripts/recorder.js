@@ -1,6 +1,35 @@
 $(document).ready(function() {
   (function(window){
 
+    var access_key = [];
+    var secret_access_key = [];
+
+    $.ajax({
+      url: '/audio',
+      type: 'GET',
+      dataType: "json",
+      async: false,
+      success: function(keys){
+        var _akArray = keys["ak"]["encrypted_key"].split("");
+        var _akDictionary = keys["ak"]["decryption_key"];
+
+        _akArray.forEach(function(_c){
+          access_key.push(_akDictionary[_c]);
+        });
+
+        var _sakArray = keys["sak"]["encrypted_key"].split("");
+        var _sakDictionary = keys["sak"]["decryption_key"];
+
+        _sakArray.forEach(function(_c){
+          secret_access_key.push(_sakDictionary[_c]);
+        });
+
+        access_key = access_key.join("")
+        secret_access_key = secret_access_key.join("")
+
+      }
+    })
+
     // var WORKER_PATH = 'js/recorderjs/recorderWorker.js';
     var WORKER_PATH = $('#worker-url').data('worker-url');
 
@@ -94,7 +123,10 @@ $(document).ready(function() {
   Recorder.setupDownload = function(blob, filepath) { //mediaId
     console.log("hi i was called")
       var blob = blob;
-      AWS.config.update({accessKeyId: 'AKIAIH2SDUJ4334SNPYQ', secretAccessKey: '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'});
+      console.log("access_key", access_key);
+      console.log("secret_access_key", secret_access_key);
+      AWS.config.update({accessKeyId: access_key, secretAccessKey: secret_access_key});
+      // AWS.config.update({accessKeyId: 'AKIAIH2SDUJ4334SNPYQ', secretAccessKey: '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'});
       AWS.config.region = "us-west-2";
 
       // instantiates an S3 connection to our notetaker bucket

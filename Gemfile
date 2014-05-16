@@ -42,4 +42,4 @@ gem 'devise'
 gem 'aws-sdk'
 gem 'pry-rails'
 gem 'unirest'
-gem 'figaro', '~> 0.7.0'
+gem "figaro"

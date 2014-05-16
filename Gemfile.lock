@@ -152,7 +152,7 @@ DEPENDENCIES
   aws-sdk
   coffee-rails (~> 4.0.0)
   devise
-  figaro (~> 0.7.0)
+  figaro
   jbuilder (~> 2.0)
   jquery-rails
   pg

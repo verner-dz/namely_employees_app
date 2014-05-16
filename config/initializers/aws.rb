@@ -1,4 +1,9 @@
 AWS.config({
-  access_key_id: 'AKIAIH2SDUJ4334SNPYQ',
-  secret_access_key: '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'
+  notetaker_bucket_name: ENV['NOTETAKER_BUCKET_NAME'],
+  access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+  secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
   })
+
+
+
+

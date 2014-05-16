@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root "users#welcome"
 
+  get '/audio' => "credentials#provider"
+
   # post "/notes/:note_id/note_tags", to "notes#create"
 
   resources :users do
