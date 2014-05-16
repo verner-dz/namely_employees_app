@@ -25,7 +25,7 @@
     width: 100%;
   }
 
-  #record { height: 8vh; }
+  #record { height: 4vh; }
   #record.recording {
     background: red;
     background: -webkit-radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%);
