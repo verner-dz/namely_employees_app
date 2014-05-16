@@ -17,19 +17,39 @@
 //= require jquery
 //= require jquery_ujs
 
+var timeNow;
+var micHasBeenClickedFirstTime = false;
+
 function ready(){
+
+  $('#record').click(function(){
+    if (!micHasBeenClickedFirstTime) {
+        micHasBeenClickedFirstTime = true;
+        timeNow = new Date().getTime(); // this is current epoch date in milliseconds
+        console.log(timeNow);
+    }
+  });
+
+   $('.note_playback').click(function(){
+    console.log('my timer got clicked');
+    var time = $(this).text();
+    console.log("time is" + time);
+    myAudio=document.getElementById('audio2');
+    myAudio.currentTime = time;
+    myAudio.play();
+  });
 
   $('#submit').click(function(){
     // get value from input field
     var inputText = $('#note-tagger').val(); // this is :content
-    var noteCreationEpoch = new Date().getTime(); // this is :created_epoch
-    var _newNote = $('<a />', {
+    var noteCreationWithSubtractedTime = (new Date().getTime() - timeNow)/1000; // this is :created_epoch // change this to be number of seconds into recording that the button was pressed using timeNow variable
+    console.log(noteCreationWithSubtractedTime);
+    var _newNote = $('<div>', {
         text: inputText + " | ",
-        href: noteCreationEpoch,
-        id: 'e' + noteCreationEpoch,
+        id: noteCreationWithSubtractedTime,
         addClass: 'note'
       });
-    var noteTagObject = {content: inputText, created_epoch: noteCreationEpoch};
+    var noteTagObject = {content: inputText, created_epoch: noteCreationWithSubtractedTime};
     submitTagArray.push(noteTagObject);
 
 
@@ -41,7 +61,7 @@ function ready(){
     //   method: 'post',
     //   data: {
     //     content: inputText,
-    //     created_epoch: _noteCreationEpoch
+    //     created_epoch: _noteCreationWithSubtractedTime
     //     },
     //     dataType: 'json'
     // }).error(function(data) {

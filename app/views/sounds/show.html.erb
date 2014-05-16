@@ -1,21 +1,19 @@
 
+<!-- - we then take that value and add that to the this.current time, which will take us to that point in the audio directly. -->
 
 
 <audio id="audio2" controls src="<%= @sound.url %>" >
    <p>Your browser does not support the audio element</p>
 </audio>
 
- <script>
-  myAudio=document.getElementById('audio2');
-  myAudio.addEventListener('canplaythrough', function() {
-    this.currentTime = 0;
-    this.play();
-   });
- </script>
+
+
+
 
 <ul>
 <% @sound.note_tags.each do |note| %>
-  <li><%= note.content  %></li>
+  <li>  Time: <%= note.content %> </li>
+  <li>  Playback Time: <span class="note_playback"><%=note.created_epoch%></span> </li>
 <% end %>
 </ul>
 

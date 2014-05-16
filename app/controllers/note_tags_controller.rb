@@ -21,3 +21,6 @@ class NoteTagsController < ApplicationController
       render json: true, status: 201
   end
 end
+
+
+
