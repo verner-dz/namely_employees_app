@@ -8,11 +8,20 @@ class ImagesController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @image = Image.create(title: params['image']['title'], url: params['image']['url'])
-  redirect_to image_path
+    response = Image.ocr_req(params['image']['url'])
+    @image.ocrtext = response.body
+    @image.save
+    # binding.pry
+    p "====================="
+    #p response.ocrtext
+    p  @image.ocrtext
+    p "====================="
+
+  redirect_to image_path @image
   end
 
   def show
-
+    @image = Image.find(params[:id])
   end
 
 
