@@ -92,7 +92,7 @@ $(document).ready(function() {
 
 
   Recorder.setupDownload = function(blob, filepath) { //mediaId
-    console.log("hi i was called")
+    console.log("setupDownload i was called")
       var blob = blob;
       AWS.config.update({accessKeyId: 'AKIAIH2SDUJ4334SNPYQ', secretAccessKey: '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'});
       AWS.config.region = "us-west-2";

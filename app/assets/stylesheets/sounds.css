@@ -12,10 +12,11 @@
     display: inline-block;
     background: #202020;
     width: 95%;
-    height: 45%;
+    height: 100%;
     box-shadow: 0px 0px 10px blue;
   }
   #controls {
+    z-index: 100;
   /*  display: flex;*/
   /*  flex-direction: row;*/
     align-items: center;*/
@@ -24,7 +25,7 @@
     width: 100%;
   }
 
-  #record { height: 4vh; }
+  #record { height: 8vh; }
   #record.recording {
     background: red;
     background: -webkit-radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%);
@@ -35,7 +36,8 @@
   #save { opacity: 0.25;}
   #save[download] { opacity: 1;}
   #viz {
-    height: 80%;
+    position: fixed;
+    height: 100%;
     width: 100%;
     /*display: flex;*/
     /*flex-direction: column;*/
@@ -44,8 +46,8 @@
   }
   @media (orientation: landscape) {
     /*body { flex-direction: row;}*/
-    /*#controls { flex-direction: column; height: 100%; width: 10%;}*/
-    #viz { height: 100%; width: 90%;}
+
+
   }
 
   #speech {
@@ -62,6 +64,7 @@
     min-height: 150px;
     width: 80%;
     display: inline-block;
+    background: rgba(255,255,255,.1);
   }
 /*================================
 google speech .css!!
@@ -308,3 +311,7 @@ width:100%;
 height:100%;
 z-index:-1;
 }
+#wavedisplay {
+  visibility: hidden
+}
+
