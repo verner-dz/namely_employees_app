@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root :controller => 'home', :action => 'welcome'
+  root to: 'pages#index'
   resources :employees
 end
