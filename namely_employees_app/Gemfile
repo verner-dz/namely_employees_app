@@ -25,9 +25,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bootstrap-sass'
 
-gem 'namely', '~> 0.2.2'
-
-
 gem 'oauth2', '~> 1.1'
 
 gem 'json', '~> 1.8', '>= 1.8.3'
@@ -37,7 +34,7 @@ gem "binding_of_caller"
 
 gem 'activerecord-session_store'
 
-# gem 'omniauth-oauth2'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
