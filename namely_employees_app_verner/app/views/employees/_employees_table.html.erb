@@ -1,0 +1,26 @@
+<h1>This is the employees table</h1>
+
+<a href="<%= employees_sort_employees_path %>" class="btn btn-primary"> Sort by First Name</a>
+<table class="table">
+    <thead>
+      <tr>
+        <th> First Name</a></th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Job Title</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%@data["profiles"].each do |profile| %>
+      <tr>
+        <td><%= profile["first_name"] %></td>
+        <td><%= profile["last_name"] %></td>
+        <td><%= profile["email"] %></td>
+        <td><%= profile["job_title"]["title"] %></td>
+        <td><%= profile["user_status"] %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
