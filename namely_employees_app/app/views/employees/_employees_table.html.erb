@@ -1,6 +1,6 @@
 <h1>This is the employees table</h1>
 
-<a href="<%= employees_sort_employees_path %>" class="btn btn-primary"> Sort by First Name</a>
+<a href="<%= employees_path(:sort_first_name => true) %>" class="btn btn-primary"> Sort by First Name</a>
 <table class="table">
     <thead>
       <tr>

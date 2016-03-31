@@ -1,11 +1,10 @@
 class EmployeesController < ApplicationController
   def index
-    response = auth_data.get('https://verner-eng-homework.namely.com/api/v1/profiles.json?limit=all')
-    @data = JSON.parse(response.body)
-  end
-
-  def sort_employees
-    response = auth_data.get('https://verner-eng-homework.namely.com/api/v1/profiles.json?sort=first_name')
+    if params[:sort_first_name]
+      response = auth_data.get('https://verner-eng-homework.namely.com/api/v1/profiles.json?sort=first_name')
+    else
+      response = auth_data.get('https://verner-eng-homework.namely.com/api/v1/profiles.json?limit=all')
+    end
     @data = JSON.parse(response.body)
   end
 
